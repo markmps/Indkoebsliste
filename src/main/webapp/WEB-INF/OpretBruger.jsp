@@ -1,35 +1,33 @@
 <%--
   Created by IntelliJ IDEA.
   User: Marks
-  Date: 01-03-2020
-  Time: 21:39
+  Date: 02-03-2020
+  Time: 15:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Indkøbsliste</title>
+    <title>Opret bruger</title>
 </head>
 <body>
 
-<h1>Velkommen til din online indkøbsliste.</h1>
-
+Her kan du registrere dig som bruger på huskelisten.
 <br>
 <br>
 <br>
-
 ${requestScope.besked}
 
 <br>
+<br>
 
-<form action="LogInServlet" method="post">
+<form action="OpretServlet" method="post">
     <label for="fname">First name:</label><br>
     <input type="text" id="fname" name="navn"><br>
     <label for="lname">Kodeord:</label><br>
     <input type="text" id="lname" name="kodeord"><br><br>
-    <input type="submit" value="login">
+    <input type="submit" value="Opret">
 </form>
-
 
 
 </body>
