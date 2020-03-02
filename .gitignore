@@ -96,3 +96,5 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/java,macos,maven,windows# Created by .ignore support plugin (hsz.mobi)
 ./
+src/main/java/
+src/main/webapp/WEB-INF/
