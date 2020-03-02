@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<h1>Du er nu på din huskeliste og er klar til at tilføje emner</h1>
+${sessionScope.besked}
+
+<h1>Du er klar til at tilføje emner til din indkøbskurv</h1>
 
 </body>
 </html>

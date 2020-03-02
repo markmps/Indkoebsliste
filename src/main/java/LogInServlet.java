@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,8 @@ public class LogInServlet extends HttpServlet {
 
         ServletContext servletContext = getServletContext();
 
+        HttpSession session = request.getSession();
+        //Session objektet hænger på browseren
         String navn = request.getParameter("navn");
         String kodeord = request.getParameter("kodeord");
 
@@ -38,7 +41,6 @@ public class LogInServlet extends HttpServlet {
             request.setAttribute("besked","Opret dig som bruger");
             request.getRequestDispatcher("WEB-INF/OpretBruger.jsp").forward(request,response);
 
-            //todo gå til login side
         }
 
         if(((Map<String,String>)servletContext.getAttribute("brugerMap")).get(navn).equalsIgnoreCase(kodeord)) {
@@ -48,9 +50,9 @@ public class LogInServlet extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request,response);
             }
 
+            session.setAttribute("besked","Du er logget ind med navnet " + navn);
             request.getRequestDispatcher("WEB-INF/HuskeListe.jsp").forward(request,response);
 
-            //todo gå til huskelisten
         }
         //todo gå til login dvs index siden.
         request.setAttribute("besked","din kode var forkert, prøv igen");
